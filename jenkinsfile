@@ -5,7 +5,7 @@ stages {
 stage('Docker Build') {
 agent any
 steps {
-sh 'docker build -t ramisetti/newpipeline:latest .'
+sh 'docker build -t ramisetti/newpipeline:latest'
 }
 }
 stage('Docker Push') {
