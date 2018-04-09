@@ -6,6 +6,7 @@ stage('Docker Build') {
 agent any
 steps {
 sh 'docker build . -t hellowhale'
+sh 'docker tag hellowhale ramisetti90/hellowhale'
 }
 }
 stage('Docker Push') {
