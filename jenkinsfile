@@ -22,7 +22,7 @@ stage('Deploy New Build To Kubernetes') {
 	    agent any
 	    steps{
 		    sh 'docker push ramisetti90/hellowhale:latest'
-		    sh 'kubectl set image deployment/hellowhale hellowhale=gagan1109/hellowhale:latest'
+		    sh 'kubectl set image deployment/hellowhale hellowhale=ramisetti90/hellowhale:latest'
 	    }
       }
   }
