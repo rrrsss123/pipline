@@ -28,6 +28,7 @@ stage('Deploy New Build To Kubernetes') {
 		    sh 'kubectl create deployment hellowhale --image ramisetti90/hellowhale' 
 		    sh 'kubectl set image deployment/hellowhale hellowhale=ramisetti90/hellowhale:latest'
 		    sh 'kubectl create service nodeport hellowhale --tcp=80:80'
+		    sh 'kubectl get services'
 	    }
       }
   }
