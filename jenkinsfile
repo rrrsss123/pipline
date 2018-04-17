@@ -14,7 +14,7 @@ agent any
 steps {
 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-sh 'docker push rrr/hellowhale:latest'
+sh 'docker push rrr/hellowhale'
 }
 }
 }
@@ -24,9 +24,9 @@ stage('Deploy New Build To Kubernetes') {
 		   
 		    sh 'kubectl delete deployments hellowhale'
 		    sh 'kubectl delete services hellowhale'
-		    sh 'docker pull rrr/hellowhale:latest'
+		    sh 'docker pull rrr/hellowhale'
 		    sh 'kubectl create deployment hellowhale --image rrr/hellowhale' 
-		    sh 'kubectl set image deployment/hellowhale hellowhale=rrr/hellowhale:latest'
+		    sh 'kubectl set image deployment/hellowhale hellowhale=rrr/hellowhale'
 		    sh 'kubectl create service nodeport hellowhale --tcp=80:80'
 		    sh 'kubectl get services'
 	    }
