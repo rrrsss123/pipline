@@ -22,8 +22,8 @@ stage('Deploy New Build To Kubernetes') {
 	    agent any
 	    steps{
 		   
-		    sh 'kubectl delete deployments hellowhale'
-		    sh 'kubectl delete services hellowhale'
+		    //sh 'kubectl delete deployments hellowhale'
+		    //sh 'kubectl delete services hellowhale'
 		    sh 'docker pull dockerdk123/hellowhale'
 		    sh 'kubectl create deployment hellowhale --image dockerdk123/hellowhale' 
 		    sh 'kubectl set image deployment/hellowhale hellowhale=dockerdk123/hellowhale'
